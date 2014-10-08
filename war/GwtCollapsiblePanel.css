@@ -25,3 +25,8 @@
 	-webkit-border-radius:3px;
 	border-radius:3px;
 }
+
+.exp-col-image{
+	cursor: hand;
+	cursor: pointer;
+}

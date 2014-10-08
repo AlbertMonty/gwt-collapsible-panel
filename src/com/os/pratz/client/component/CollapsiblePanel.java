@@ -71,6 +71,7 @@ public class CollapsiblePanel extends Composite{
 
 	private void createHeaderPanel(Panel headerPanel) {
 		img = new Image();
+		img.setStyleName("exp-col-image");
 		img.setUrl(COLLAPSE_IMG);
 		img.addClickHandler(imageClickHandler);
 		headerPanel.add(img);
