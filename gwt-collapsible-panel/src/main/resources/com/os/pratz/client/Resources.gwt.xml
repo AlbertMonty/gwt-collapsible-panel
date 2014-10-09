@@ -1,0 +1,6 @@
+<module>
+    <public path="resource">
+        <include name="css/*.css"/>
+    </public>
+    <stylesheet src="css/GwtCollapsiblePanel.css"/>
+</module>

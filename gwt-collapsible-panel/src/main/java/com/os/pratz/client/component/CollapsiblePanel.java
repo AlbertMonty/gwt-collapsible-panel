@@ -15,11 +15,13 @@ import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.resources.client.ImageResource;
+import com.os.pratz.client.CollapsiblePanelClientBundle;
 
 public class CollapsiblePanel extends Composite{
 	
-	private static final String COLLAPSE_IMG = "images/collapse.png";
-	private static final String EXPAND_IMG = "images/expand.png";
+	private ImageResource COLLAPSE_IMG = CollapsiblePanelClientBundle.INSTANCE.collapse();
+	private ImageResource EXPAND_IMG = CollapsiblePanelClientBundle.INSTANCE.expand();
 	private SimplePanel contentPanel;
 	private HorizontalPanel headerPanel;
 	private Image img;
@@ -70,9 +72,8 @@ public class CollapsiblePanel extends Composite{
 
 
 	private void createHeaderPanel(Panel headerPanel) {
-		img = new Image();
+		img = new Image(COLLAPSE_IMG);
 		img.setStyleName("exp-col-image");
-		img.setUrl(COLLAPSE_IMG);
 		img.addClickHandler(imageClickHandler);
 		headerPanel.add(img);
 		((HorizontalPanel)headerPanel).setCellHorizontalAlignment(img, HasHorizontalAlignment.ALIGN_RIGHT);
@@ -103,7 +104,7 @@ public class CollapsiblePanel extends Composite{
 	public void showContentPanel(int duration){
 		if(!contentPanel.isVisible()){
 			wipeAnimate.animatedShow(duration, contentPanelHeight);
-			img.setUrl(COLLAPSE_IMG);
+			img.setResource(COLLAPSE_IMG);
 		}
 	}
 	
@@ -121,7 +122,7 @@ public class CollapsiblePanel extends Composite{
 		if(contentPanel.isVisible()){
 			int offsetHeight = contentPanel.getElement().getClientHeight();
 			wipeAnimate.animatedHide(duration, offsetHeight);
-			img.setUrl(EXPAND_IMG);
+			img.setResource(EXPAND_IMG);
 			headerPanel.setWidth(contentPanelWidth+"px");
 		}
 	}
